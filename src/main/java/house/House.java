@@ -11,7 +11,14 @@ public class House {
     private int numberOfRooms; /// Кількість кімнат
     private String street; /// вулиця
 
-    public House(){}
+    public House() {
+        id = 0;
+        apartmentNumber = 0;
+        area = 0;
+        floor = 0;
+        numberOfRooms = 0;
+        street = "";
+    }
 
     public House(int id, int apartmentNumber, int area, int floor, int numberOfRooms, String street) {
         this.id = id;
@@ -35,10 +42,10 @@ public class House {
     public int GetArea() {return area;}
     public int GetFloor() {return floor;}
     public int GetNumberOfRooms() {return numberOfRooms;}
-    public String street() {return street;}
+    public String GetStreet() {return street;}
 
     public String ToString() {
-        return WHITE + "Дані квартири по " + "Id: " + RESET + id +
+        return WHITE + "\nДані квартири по " + "Id: " + RESET + id +
                 WHITE + "\n\tКвартира: " + RESET + "№"+ apartmentNumber +
                 WHITE + "\n\tПлоща: " + RESET + area + "кв." +
                 WHITE + "\n\tПоверх: " + RESET + floor +
