@@ -13,25 +13,17 @@ public class Main {
             System.out.println(houses[i].ToString());
         }
 
-        System.out.println("1) Вивести квартири за їхньою площею\n" +
-                "2) Вивести квартири за кількістю квартир\n" +
-                "3) Вивести квартири, які знаходяться на одному поверсі\n" +
-                " Ваш вибір: ");
+        System.out.print("Введіть площу: ");
+        double area = sc.nextDouble();
+        printByAreaRange(houses, area);
 
-        int choice = sc.nextInt();
+        System.out.print("Введіть кількість кімнат: ");
+        int numberOfRooms = sc.nextInt();
+        printByNumberOfRoomsRange(houses, numberOfRooms);
 
-        switch(choice) {
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            default:
-                System.out.println("Помилка! Неправильний вибір");
-
-
-        }
+        System.out.print("Введіть поверх: ");
+        int floor = sc.nextInt();
+        printByFloorRange(houses, floor);
 
     }
 
@@ -50,7 +42,7 @@ public class Main {
             houses[i].SetApartmentNumber(apartmentNumber);
 
             System.out.print("Площа квартири: ");
-            int area = sc.nextInt();
+            double area = sc.nextDouble();
             houses[i].SetArea(area);
 
             System.out.print("Поверх: ");
@@ -69,15 +61,22 @@ public class Main {
         return houses;
     }
 
-    public static void printByAreaRange() {
-
+    public static void printByAreaRange(House[] houses, double area) {
+        System.out.println("Квартири з площею >= " + area + ":");
+        for(House h : houses) {
+            if(h.GetArea() >= area) System.out.println(h.ToString());
+        }
     }
-
-    public static void printByFloorRange() {
-
+    public static void printByNumberOfRoomsRange(House[] houses, int numberOfRooms) {
+        System.out.println("Квартири з кількістю кімнат >= " + numberOfRooms + ":");
+        for(House h : houses){
+            if(h.GetNumberOfRooms() >= numberOfRooms) System.out.println(h.ToString());
+        }
     }
-
-    public static void printByNumberOfRoomsRange() {
-
+    public static void printByFloorRange(House[] houses, int floor) {
+        System.out.println("Квартири на поверсі " + floor + ":");
+        for(House h : houses){
+            if(h.GetFloor() >= floor) System.out.println(h.ToString());
+        }
     }
 }
